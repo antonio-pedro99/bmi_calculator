@@ -46,6 +46,8 @@ class _MyHomePageState extends State<MyHomePage> {
             const SizedBox(height: 100, child: AgePicker()),
             const SizedBox(height: 24),
             const WeightPicker(),
+            const SizedBox(height: 2),
+            const CurvedButton(),
           ],
         ),
       ),
