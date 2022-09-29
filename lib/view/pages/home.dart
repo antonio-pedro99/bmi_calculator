@@ -1,6 +1,9 @@
 import 'package:bmi_calculator/view/customs/age_picker.dart';
 import 'package:bmi_calculator/view/customs/gender_selection_tile.dart';
+import 'package:bmi_calculator/view/customs/weight_picker.dart';
 import 'package:flutter/material.dart';
+
+import '../customs/custom_button.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -39,8 +42,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 )
               ],
             ),
-            const SizedBox(height: 45),
+            const SizedBox(height: 25),
             const SizedBox(height: 100, child: AgePicker()),
+            const SizedBox(height: 24),
+            const WeightPicker(),
           ],
         ),
       ),
