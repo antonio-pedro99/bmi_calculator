@@ -1,6 +1,8 @@
+import 'package:bmi_calculator/constants.dart';
 import 'package:bmi_calculator/view/customs/age_picker.dart';
 import 'package:bmi_calculator/view/customs/gender_selection_tile.dart';
 import 'package:bmi_calculator/view/customs/weight_picker.dart';
+import 'package:bmi_calculator/view/pages/height.dart';
 import 'package:flutter/material.dart';
 
 import '../customs/custom_button.dart';
@@ -19,10 +21,9 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     List<int> ages = List<int>.generate(80, (index) => index);
-    //var agePicker = AgePicker();
+
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 100,
         title: Text(widget.title),
       ),
       body: SafeArea(
@@ -36,9 +37,13 @@ class _MyHomePageState extends State<MyHomePage> {
               children: const [
                 GenderSelectionTale(
                   gender: "Male",
+                  image: "male.gif",
+                  color: blue,
                 ),
                 GenderSelectionTale(
                   gender: "Female",
+                  image: "female.gif",
+                  color: pink,
                 )
               ],
             ),
@@ -46,8 +51,15 @@ class _MyHomePageState extends State<MyHomePage> {
             const SizedBox(height: 100, child: AgePicker()),
             const SizedBox(height: 24),
             const WeightPicker(),
-            const SizedBox(height: 2),
-            const CurvedButton(),
+            const SizedBox(height: 24),
+            CurvedButton(
+              onPressed: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: ((context) {
+                  return HeightPage();
+                })));
+              },
+            ),
           ],
         ),
       ),

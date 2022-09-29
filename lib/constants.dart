@@ -25,3 +25,5 @@ const Color swatch = Color.fromRGBO(54, 52, 80, 1);
 const Color primary = Color.fromRGBO(111, 103, 228, 1);
 const Color darkBlue = Color.fromRGBO(32, 33, 55, 1);
 const Color grey = Color.fromRGBO(69, 68, 95, 1);
+const Color blue = Color.fromRGBO(117, 158, 242, 1);
+const Color pink = Color.fromRGBO(204, 154, 240, 1);

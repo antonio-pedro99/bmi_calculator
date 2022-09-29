@@ -1,4 +1,5 @@
 import 'package:bmi_calculator/view/customs/age_indicator.dart';
+import 'package:bmi_calculator/view/customs/circle_shape.dart';
 import 'package:bmi_calculator/view/customs/pentagon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -15,19 +16,19 @@ class WeightPicker extends StatefulWidget {
 
 class _WeightPickerState extends State<WeightPicker> {
   late PageController weightPickerController;
-  int _selectedAge = 18;
+  int _selectedWeight = 70;
   @override
   void initState() {
     super.initState();
 
     weightPickerController =
-        PageController(initialPage: _selectedAge, viewportFraction: .14);
+        PageController(initialPage: _selectedWeight, viewportFraction: .14);
 
     weightPickerController.addListener(() {
       setState(() {
         int position = weightPickerController.page!.round();
-        if (position != _selectedAge) {
-          _selectedAge = position;
+        if (position != _selectedWeight) {
+          _selectedWeight = position;
         }
       });
     });
@@ -54,43 +55,76 @@ class _WeightPickerState extends State<WeightPicker> {
           padding: const EdgeInsets.all(12),
           alignment: Alignment.topCenter,
           decoration: BoxDecoration(
-              color: primary, borderRadius: BorderRadius.circular(10)),
-          child: Container(
-            height: 100,
-            child: PageView.builder(
-              controller: weightPickerController,
-              scrollDirection: Axis.horizontal,
-              itemCount: 80,
-              itemBuilder: (context, index) {
-                bool isActive = _selectedAge == index;
-                bool isNextLeftClose = index - _selectedAge == -1;
-                bool isNextRightClose = index - _selectedAge == 1;
-                bool isNextNextLeftClose = index - _selectedAge == -2;
-                bool isNextNextRightClose = index - _selectedAge == 2;
-                var text = Text("${index + 1}");
-                return Align(
-                  alignment: Alignment.center,
-                  child: Text(
-                    "${text.data}",
-                    style: TextStyle(
-                        color: Colors.white.withOpacity(isActive
-                            ? 1
-                            : isNextLeftClose || isNextRightClose
-                                ? .8
-                                : isNextNextLeftClose || isNextNextRightClose
-                                    ? .5
-                                    : .3),
-                        fontSize: isActive
-                            ? 34
-                            : isNextLeftClose || isNextRightClose
-                                ? 24
-                                : isNextNextLeftClose || isNextNextRightClose
-                                    ? 16
-                                    : 14),
-                  ),
-                );
-              },
-            ),
+              border: Border.all(color: darkBlue, width: 2),
+              color: primary,
+              borderRadius: BorderRadius.circular(10)),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Icon(
+                Icons.arrow_drop_down,
+                color: Colors.white,
+              ),
+              SizedBox(
+                height: 80,
+                child: PageView.builder(
+                  controller: weightPickerController,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 100,
+                  itemBuilder: (context, index) {
+                    bool isActive = _selectedWeight == index;
+                    bool isNextLeftClose = index - _selectedWeight == -1;
+                    bool isNextRightClose = index - _selectedWeight == 1;
+                    bool isNextNextLeftClose = index - _selectedWeight == -2;
+                    bool isNextNextRightClose = index - _selectedWeight == 2;
+                    var text = Text("${index + 1}");
+                    return Align(
+                      alignment: Alignment.center,
+                      child: Text(
+                        "${text.data}",
+                        style: TextStyle(
+                            color: Colors.white.withOpacity(isActive
+                                ? 1
+                                : isNextLeftClose || isNextRightClose
+                                    ? .8
+                                    : isNextNextLeftClose ||
+                                            isNextNextRightClose
+                                        ? .5
+                                        : .3),
+                            fontSize: isActive
+                                ? 34
+                                : isNextLeftClose || isNextRightClose
+                                    ? 24
+                                    : isNextNextLeftClose ||
+                                            isNextNextRightClose
+                                        ? 16
+                                        : 14),
+                      ),
+                    );
+                  },
+                ),
+              ),
+              CircleAvatar(
+                  radius: 55,
+                  backgroundColor: Colors.white,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "${_selectedWeight + 1}",
+                        style: const TextStyle(
+                            color: primary,
+                            fontSize: 40,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      const Text(
+                        "Kg",
+                        style: TextStyle(color: primary, fontSize: 18),
+                      )
+                    ],
+                  ))
+            ],
           ),
         ),
       ),

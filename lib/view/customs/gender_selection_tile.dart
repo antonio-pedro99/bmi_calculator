@@ -4,9 +4,16 @@ import 'package:flutter/material.dart';
 import '../../constants.dart';
 
 class GenderSelectionTale extends StatelessWidget {
-  const GenderSelectionTale({Key? key, required this.gender}) : super(key: key);
+  const GenderSelectionTale(
+      {Key? key,
+      required this.gender,
+      required this.image,
+      this.color = darkBlue})
+      : super(key: key);
 
   final String gender;
+  final String image;
+  final Color? color;
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -22,8 +29,9 @@ class GenderSelectionTale extends StatelessWidget {
                 width: size.width * .4,
                 decoration: BoxDecoration(
                     border: Border.all(color: grey),
-                    color: darkBlue,
+                    color: color,
                     borderRadius: BorderRadius.circular(8)),
+                child: Image.asset("assets/$image"),
               ),
             )),
         const SizedBox(
