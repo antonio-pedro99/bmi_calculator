@@ -24,7 +24,9 @@ class GenderSelectionTale extends StatelessWidget {
               clipper: CustomCurvePath(),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(8),
-                child: Container(
+                child: AnimatedContainer(
+                  curve: Curves.bounceInOut,
+                  duration: const Duration(microseconds: 800),
                   height: isSelected! ? size.height * .16 : size.height * .14,
                   width: isSelected! ? size.width * .45 : size.width * .4,
                   decoration: BoxDecoration(

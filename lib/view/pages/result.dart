@@ -1,4 +1,5 @@
 import 'package:bmi_calculator/constants.dart';
+import 'package:bmi_calculator/view/customs/composition_tile.dart';
 import 'package:bmi_calculator/view/customs/custom_button.dart';
 import 'package:bmi_calculator/view/pages/home.dart';
 import 'package:flutter/material.dart';
@@ -45,18 +46,31 @@ class _ResultPageState extends State<ResultPage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const CircleAvatar(radius: 130, backgroundColor: primary),
+                Text(
+                  "Body Composition ",
+                  style: TextStyle(color: Colors.white.withOpacity(.5)),
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Container(width: 150, height: 120, color: Colors.red),
-                    Container(width: 150, height: 120, color: Colors.red)
+                    Container(width: 150, height: 120, color: darkBlue),
+                    CompositionTile(
+                      value: 25.toString(),
+                      title: "Age",
+                    )
                   ],
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Container(width: 150, height: 120, color: Colors.red),
-                    Container(width: 150, height: 120, color: Colors.red)
+                    CompositionTile(
+                      value: 156.toString(),
+                      title: "Height",
+                    ),
+                    CompositionTile(
+                      value: 65.toString(),
+                      title: "Kg",
+                    )
                   ],
                 ),
                 CurvedButton(
