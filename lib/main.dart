@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
               centerTitle: true,
               systemOverlayStyle:
                   SystemUiOverlayStyle(statusBarColor: swatch))),
-      home: const MyHomePage(title: 'BMI Calculator'),
+      home: const MyHomePage(),
     );
   }
 }

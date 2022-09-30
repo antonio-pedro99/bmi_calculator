@@ -1,4 +1,5 @@
 import 'package:bmi_calculator/view/customs/custom_button.dart';
+import 'package:bmi_calculator/view/pages/result.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants.dart';
@@ -140,7 +141,15 @@ class _HeightPageState extends State<HeightPage> {
                             itemCount: maxValue ~/ valueGap))
                   ],
                 ),
-                const CurvedButton()
+                CurvedButton(
+                  onPressed: () {
+                    Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(
+                      builder: (context) {
+                        return const ResultPage();
+                      },
+                    ), ((route) => false));
+                  },
+                )
               ],
             ),
           ),

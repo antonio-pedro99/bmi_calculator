@@ -4,9 +4,16 @@ import 'package:bmi_calculator/view/customs/curve.dart';
 import 'package:flutter/material.dart';
 
 class CurvedButton extends StatelessWidget {
-  const CurvedButton({Key? key, this.onPressed}) : super(key: key);
+  const CurvedButton(
+      {Key? key,
+      this.onPressed,
+      this.icon = Icons.arrow_forward,
+      this.text = "Next"})
+      : super(key: key);
 
   final VoidCallback? onPressed;
+  final String? text;
+  final IconData? icon;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -22,13 +29,13 @@ class CurvedButton extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: const [
+            children: [
               Text(
-                "Next",
+                text!,
                 style: TextStyle(color: Colors.white),
               ),
               Icon(
-                Icons.arrow_forward,
+                icon!,
                 color: Colors.white,
               )
             ],
