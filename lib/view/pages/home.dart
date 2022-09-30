@@ -1,5 +1,6 @@
 import 'package:bmi_calculator/constants.dart';
 import 'package:bmi_calculator/view/customs/age_picker.dart';
+import 'package:bmi_calculator/view/customs/gender_picker.dart';
 import 'package:bmi_calculator/view/customs/gender_selection_tile.dart';
 import 'package:bmi_calculator/view/customs/weight_picker.dart';
 import 'package:bmi_calculator/view/pages/height.dart';
@@ -31,35 +32,20 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: const [
-                GenderSelectionTale(
-                  gender: "Male",
-                  image: "male.gif",
-                  color: blue,
-                ),
-                GenderSelectionTale(
-                  gender: "Female",
-                  image: "female.gif",
-                  color: pink,
-                )
-              ],
-            ),
-            const SizedBox(height: 25),
-            const SizedBox(height: 100, child: AgePicker()),
-            const SizedBox(height: 24),
+            const GenderPicker(),
+            const SizedBox(height: 90, child: AgePicker()),
+            const SizedBox(height: 18),
             const WeightPicker(),
-            const SizedBox(height: 24),
+            const SizedBox(height: 20),
             CurvedButton(
               onPressed: () {
                 Navigator.of(context)
                     .push(MaterialPageRoute(builder: ((context) {
-                  return HeightPage();
+                  return const HeightPage();
                 })));
               },
             ),
+            const SizedBox(height: 30),
           ],
         ),
       ),
