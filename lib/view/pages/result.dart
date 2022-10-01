@@ -1,7 +1,7 @@
-import 'package:bmi_calculator/constants.dart';
 import 'package:bmi_calculator/view/customs/composition_tile.dart';
 import 'package:bmi_calculator/view/customs/custom_button.dart';
 import 'package:bmi_calculator/view/pages/home.dart';
+import 'package:bmi_calculator/view/theme/colors.dart';
 import 'package:flutter/material.dart';
 
 class ResultPage extends StatefulWidget {
@@ -45,7 +45,16 @@ class _ResultPageState extends State<ResultPage> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const CircleAvatar(radius: 130, backgroundColor: primary),
+                Container(
+                  height: 240,
+                  width: 240,
+                  decoration: decoratedBoxGradient,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [Text("BMI"), Text("24.4"), Text("Normal")],
+                  ),
+                ),
                 Text(
                   "Body Composition ",
                   style: TextStyle(color: Colors.white.withOpacity(.5)),
@@ -65,7 +74,7 @@ class _ResultPageState extends State<ResultPage> {
                   children: [
                     CompositionTile(
                       value: 156.toString(),
-                      title: "Height",
+                      title: "centimeter",
                     ),
                     CompositionTile(
                       value: 65.toString(),

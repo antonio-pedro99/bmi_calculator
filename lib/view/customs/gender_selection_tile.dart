@@ -1,8 +1,8 @@
 import 'package:bmi_calculator/data/models/gender.dart';
 import 'package:bmi_calculator/view/customs/curve.dart';
+import 'package:bmi_calculator/view/theme/colors.dart';
+import 'package:bmi_calculator/view/theme/typography.dart';
 import 'package:flutter/material.dart';
-
-import '../../constants.dart';
 
 class GenderSelectionTale extends StatelessWidget {
   const GenderSelectionTale(
@@ -52,13 +52,10 @@ class GenderSelectionTale extends StatelessWidget {
           const SizedBox(
             height: 18,
           ),
-          Text(
-            gender.gender!,
-            style: TextStyle(
-                color: Colors.white,
-                fontWeight: isSelected! ? FontWeight.bold : FontWeight.normal,
-                fontSize: 16),
-          )
+          Text(gender.gender!,
+              style: isSelected!
+                  ? CustomTypography.labelNormalBold
+                  : CustomTypography.labelNormal),
         ],
       ),
     );

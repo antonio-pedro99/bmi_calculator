@@ -1,11 +1,6 @@
-import 'package:bmi_calculator/view/customs/age_indicator.dart';
-import 'package:bmi_calculator/view/customs/circle_shape.dart';
 import 'package:bmi_calculator/view/customs/pentagon.dart';
+import 'package:bmi_calculator/view/theme/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-
-import '../../constants.dart';
 
 class WeightPicker extends StatefulWidget {
   const WeightPicker({Key? key}) : super(key: key);
@@ -62,7 +57,7 @@ class _WeightPickerState extends State<WeightPicker> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Icon(
+              const Icon(
                 Icons.arrow_drop_down,
                 color: Colors.white,
               ),
@@ -84,6 +79,7 @@ class _WeightPickerState extends State<WeightPicker> {
                       child: Text(
                         "${text.data}",
                         style: TextStyle(
+                            fontWeight: isActive ? FontWeight.normal : null,
                             color: Colors.white.withOpacity(isActive
                                 ? 1
                                 : isNextLeftClose || isNextRightClose

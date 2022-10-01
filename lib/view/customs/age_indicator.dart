@@ -1,8 +1,6 @@
-import 'package:bmi_calculator/constants.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:bmi_calculator/view/theme/colors.dart';
+import 'package:bmi_calculator/view/theme/typography.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class AgeIndicator extends StatelessWidget {
   const AgeIndicator({Key? key, required this.age}) : super(key: key);
@@ -15,7 +13,6 @@ class AgeIndicator extends StatelessWidget {
         Container(
             height: 60,
             width: 55,
-            // alignment: Alignment.topCenter,
             padding: const EdgeInsets.all(5),
             decoration: BoxDecoration(
                 color: primary, borderRadius: BorderRadius.circular(8)),
@@ -30,17 +27,16 @@ class AgeIndicator extends StatelessWidget {
                 ),
                 Text(
                   "$age",
-                  style: const TextStyle(color: Colors.white, fontSize: 28),
+                  style: CustomTypography.labelLarge,
                 )
               ],
             )),
         const SizedBox(
           height: 10,
         ),
-        const Text(
+        Text(
           "Age",
-          style: TextStyle(
-              color: Colors.white, fontWeight: FontWeight.normal, fontSize: 16),
+          style: CustomTypography.labelNormal,
         )
       ],
     );

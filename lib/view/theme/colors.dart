@@ -27,3 +27,19 @@ const Color darkBlue = Color.fromRGBO(32, 33, 55, 1);
 const Color grey = Color.fromRGBO(69, 68, 95, 1);
 const Color blue = Color.fromRGBO(117, 158, 242, 1);
 const Color pink = Color.fromRGBO(204, 154, 240, 1);
+const Color intensePink = Color.fromRGBO(190, 62, 212, 1);
+
+const decoratedBoxGradient = BoxDecoration(
+    gradient: LinearGradient(
+      colors: [intensePink, primary],
+      begin: Alignment.topLeft,
+      end: Alignment.bottomCenter,
+    ),
+    shape: BoxShape.circle,
+    boxShadow: [
+      BoxShadow(
+        color: Colors.black38,
+        blurRadius: 25,
+        spreadRadius: 1,
+      )
+    ]);

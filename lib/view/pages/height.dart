@@ -2,7 +2,7 @@ import 'package:bmi_calculator/view/customs/custom_button.dart';
 import 'package:bmi_calculator/view/pages/result.dart';
 import 'package:flutter/material.dart';
 
-import '../../constants.dart';
+
 
 class HeightPage extends StatefulWidget {
   const HeightPage({Key? key}) : super(key: key);

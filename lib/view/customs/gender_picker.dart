@@ -1,9 +1,8 @@
-import 'package:bmi_calculator/constants.dart';
 import 'package:bmi_calculator/data/models/gender.dart';
 import 'package:bmi_calculator/view/customs/gender_selection_tile.dart';
+import 'package:bmi_calculator/view/theme/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 
 class GenderPicker extends StatefulWidget {
   const GenderPicker({Key? key}) : super(key: key);

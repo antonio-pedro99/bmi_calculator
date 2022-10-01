@@ -1,4 +1,4 @@
-import 'package:bmi_calculator/constants.dart';
+import 'package:bmi_calculator/view/theme/colors.dart';
 import 'package:flutter/material.dart';
 
 class CompositionTile extends StatelessWidget {
