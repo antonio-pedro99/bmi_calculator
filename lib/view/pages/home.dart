@@ -1,8 +1,10 @@
+import 'package:bmi_calculator/controller/data_input_controller.dart';
 import 'package:bmi_calculator/view/customs/age_picker.dart';
 import 'package:bmi_calculator/view/customs/gender_picker.dart';
 import 'package:bmi_calculator/view/customs/weight_picker.dart';
 import 'package:bmi_calculator/view/pages/height.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../customs/custom_button.dart';
 

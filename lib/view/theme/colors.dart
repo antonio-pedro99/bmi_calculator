@@ -30,11 +30,12 @@ const Color pink = Color.fromRGBO(204, 154, 240, 1);
 const Color intensePink = Color.fromRGBO(190, 62, 212, 1);
 
 const decoratedBoxGradient = BoxDecoration(
-    gradient: LinearGradient(
+    /* gradient: LinearGradient(
       colors: [intensePink, primary],
       begin: Alignment.topLeft,
       end: Alignment.bottomCenter,
-    ),
+    ), */
+    color: primary,
     shape: BoxShape.circle,
     boxShadow: [
       BoxShadow(

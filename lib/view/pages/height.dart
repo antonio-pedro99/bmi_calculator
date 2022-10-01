@@ -1,8 +1,8 @@
+import 'package:bmi_calculator/controller/data_input_controller.dart';
 import 'package:bmi_calculator/view/customs/custom_button.dart';
 import 'package:bmi_calculator/view/pages/result.dart';
 import 'package:flutter/material.dart';
-
-
+import 'package:provider/provider.dart';
 
 class HeightPage extends StatefulWidget {
   const HeightPage({Key? key}) : super(key: key);
@@ -81,6 +81,7 @@ class _HeightPageState extends State<HeightPage> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+               
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.end,
@@ -91,7 +92,9 @@ class _HeightPageState extends State<HeightPage> {
                       child: LimitedBox(
                         maxHeight: size.height * .65,
                         child: Image.asset(
-                          "assets/man_standing.png",
+                          Provider.of<DataProvider>(context).isMaleSelected
+                              ? "assets/man_standing.png"
+                              : "assets/girl_standing.png",
                           height: value.toDouble() * 3,
                           fit: BoxFit.fitHeight,
                         ),
