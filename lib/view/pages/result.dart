@@ -64,7 +64,7 @@ class _ResultPageState extends State<ResultPage> {
                       ),
                       const SizedBox(height: 15),
                       Text(
-                        "${person.bodyMassIndex}",
+                        person.bodyMassIndex!.toStringAsFixed(2),
                         style: CustomTypography.bodyLarge,
                       ),
                       Text(

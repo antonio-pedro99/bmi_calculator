@@ -32,6 +32,11 @@ class PersonProvider extends ChangeNotifier {
 
   void calculatePersonBodyMassIndex() {
     //calculate the BMI
+
+    double height = _person.height! / 100;
+    int weight = _person.weight!;
+
+    _person.bodyMassIndex = weight / (height * height);
   }
 
   Person get getPerson => _person;
