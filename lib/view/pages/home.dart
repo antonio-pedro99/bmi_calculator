@@ -1,8 +1,10 @@
+import 'package:bmi_calculator/main.dart';
 import 'package:bmi_calculator/providers/person.dart';
 import 'package:bmi_calculator/view/customs/age_picker.dart';
 import 'package:bmi_calculator/view/customs/gender_picker.dart';
 import 'package:bmi_calculator/view/customs/weight_picker.dart';
 import 'package:bmi_calculator/view/pages/height.dart';
+import 'package:bmi_calculator/view/pages/records.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -24,6 +26,16 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('BMI Calculator'),
+        actions: [
+          IconButton(
+              onPressed: (() {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return const RecordPage();
+                }));
+              }),
+              icon: const Icon(Icons.history))
+        ],
       ),
       body: SafeArea(
         child: Column(

@@ -1,4 +1,3 @@
-
 import 'package:bmi_calculator/view/customs/curve.dart';
 import 'package:bmi_calculator/view/theme/colors.dart';
 
@@ -9,12 +8,14 @@ class CurvedButton extends StatelessWidget {
       {Key? key,
       this.onPressed,
       this.icon = Icons.arrow_forward,
+      this.color = primary,
       this.text = "Next"})
       : super(key: key);
 
   final VoidCallback? onPressed;
   final String? text;
   final IconData? icon;
+  final Color? color;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -23,7 +24,7 @@ class CurvedButton extends StatelessWidget {
         clipper: CustomCurvePath(),
         child: Container(
           decoration: BoxDecoration(
-              color: primary, borderRadius: BorderRadius.circular(8)),
+              color: color, borderRadius: BorderRadius.circular(8)),
           alignment: Alignment.center,
           height: 46,
           width: 75,

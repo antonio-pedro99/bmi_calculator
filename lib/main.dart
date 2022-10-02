@@ -1,3 +1,5 @@
+
+import 'package:bmi_calculator/controllers/objectbox.dart';
 import 'package:bmi_calculator/providers/person.dart';
 import 'package:bmi_calculator/view/pages/home.dart';
 import 'package:bmi_calculator/view/theme/colors.dart';
@@ -5,7 +7,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+late ObjectBox localStorage;
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  localStorage = await ObjectBox.create();
+
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(create: (_) => PersonProvider()),

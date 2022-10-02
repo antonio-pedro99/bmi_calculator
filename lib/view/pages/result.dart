@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/main.dart';
 import 'package:bmi_calculator/providers/person.dart';
 import 'package:bmi_calculator/view/customs/composition_tile.dart';
 import 'package:bmi_calculator/view/customs/custom_button.dart';
@@ -18,37 +19,88 @@ class _ResultPageState extends State<ResultPage> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    var person = Provider.of<PersonProvider>(context, listen: true).getPerson;
+    var provider = Provider.of<PersonProvider>(context, listen: true);
+    var person = provider.getPerson;
+    TextEditingController nameController = TextEditingController();
+    var key = GlobalKey<FormState>();
+
+    showSaveDialog() {
+      showDialog(
+          context: context,
+          builder: ((context) {
+            return AlertDialog(
+              title: const Center(
+                child: Text("Save"),
+              ),
+              content: SizedBox(
+                  child: Form(
+                key: key,
+                child: TextFormField(
+                  validator: (str) {
+                    return str!.isEmpty ? "Name is Missing" : null;
+                  },
+                  controller: nameController,
+                  cursorColor: primary,
+                  decoration: const InputDecoration(
+                      hintText: "Enter Your Name",
+                      filled: true,
+                      border: UnderlineInputBorder(
+                          borderSide: BorderSide(color: primary))),
+                ),
+              )),
+              actions: [
+                TextButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: const Text("Cancel")),
+                TextButton(
+                    onPressed: () {
+                      if (key.currentState!.validate()) {
+                        provider.setPersonName(nameController.text);
+                        localStorage.saveRecord(person);
+                        provider.resetValues();
+                        Navigator.of(context).pop();
+                      }
+                    },
+                    child: const Text(
+                      "Confirm",
+                      style: TextStyle(color: primary),
+                    ))
+              ],
+            );
+          }));
+    }
 
     return Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                "Your ",
-                style: TextStyle(color: Colors.white.withOpacity(.5)),
-              ),
-              const Text("Results",
-                  style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.normal)),
-            ],
-          ),
-          actions: [
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.help),
-              tooltip: "Get Help",
-            )
+      appBar: AppBar(
+        centerTitle: true,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "Your ",
+              style: TextStyle(color: Colors.white.withOpacity(.5)),
+            ),
+            const Text("Results",
+                style: TextStyle(
+                    color: Colors.white, fontWeight: FontWeight.normal)),
           ],
         ),
-        body: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(12),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.center,
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.help),
+            tooltip: "Get Help",
+          )
+        ],
+      ),
+      body: SafeArea(
+        child: ListView(
+          padding: const EdgeInsets.all(12),
+          shrinkWrap: true,
+          children: [
+            Column(
               children: [
                 Container(
                   height: 240,
@@ -74,9 +126,15 @@ class _ResultPageState extends State<ResultPage> {
                     ],
                   ),
                 ),
+                SizedBox(
+                  height: size.height * .04,
+                ),
                 Text(
                   "Body Composition ",
                   style: TextStyle(color: Colors.white.withOpacity(.5)),
+                ),
+                SizedBox(
+                  height: size.height * .04,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -95,6 +153,9 @@ class _ResultPageState extends State<ResultPage> {
                     )
                   ],
                 ),
+                SizedBox(
+                  height: size.height * .02,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -108,23 +169,46 @@ class _ResultPageState extends State<ResultPage> {
                     )
                   ],
                 ),
-                CurvedButton(
-                  text: "Retry",
-                  icon: Icons.restore,
-                  onPressed: () {
-                    Provider.of<PersonProvider>(context, listen: false)
-                        .resetValues();
+                SizedBox(
+                  height: size.height * .04,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    CurvedButton(
+                      text: "Retry",
+                      icon: Icons.restore,
+                      onPressed: () {
+                        Provider.of<PersonProvider>(context, listen: false)
+                            .resetValues();
 
-                    Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(
-                      builder: (context) {
-                        return const MyHomePage();
+                        Navigator.of(context).pushAndRemoveUntil(
+                            MaterialPageRoute(
+                          builder: (context) {
+                            return const MyHomePage();
+                          },
+                        ), ((route) => false));
                       },
-                    ), ((route) => false));
-                  },
+                    ),
+                    SizedBox(
+                      width: size.width * .05,
+                    ),
+                    CurvedButton(
+                        text: "Save",
+                        icon: Icons.save,
+                        color: Colors.green,
+                        onPressed: showSaveDialog
+                        //Navigator.pop(context);
+
+                        )
+                  ],
                 )
               ],
-            ),
-          ),
-        ));
+            )
+          ],
+        ),
+      ),
+    );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:bmi_calculator/data/models/person.dart';
+import 'package:bmi_calculator/main.dart';
 import 'package:flutter/material.dart';
 
 class PersonProvider extends ChangeNotifier {
@@ -20,6 +21,10 @@ class PersonProvider extends ChangeNotifier {
 
   void setPersonAge(int age) {
     _person.age = age;
+  }
+
+  void setPersonName(String name) {
+    _person.name = name;
   }
 
   void setPersonHeight(int height) {

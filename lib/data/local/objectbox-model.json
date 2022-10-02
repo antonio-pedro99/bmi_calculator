@@ -1,0 +1,67 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "1:5224732339796799956",
+      "lastPropertyId": "8:8858185257897704734",
+      "name": "Person",
+      "properties": [
+        {
+          "id": "1:550831133747131363",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:3540098975384256636",
+          "name": "height",
+          "type": 6
+        },
+        {
+          "id": "3:8882715184362176637",
+          "name": "age",
+          "type": 6
+        },
+        {
+          "id": "4:8915534287439034614",
+          "name": "weight",
+          "type": 6
+        },
+        {
+          "id": "5:8635190930579011330",
+          "name": "name",
+          "type": 9
+        },
+        {
+          "id": "6:8648146474246044707",
+          "name": "gender",
+          "type": 9
+        },
+        {
+          "id": "7:7295459273640082272",
+          "name": "bodyMassIndex",
+          "type": 8
+        },
+        {
+          "id": "8:8858185257897704734",
+          "name": "dataCreated",
+          "type": 10
+        }
+      ],
+      "relations": []
+    }
+  ],
+  "lastEntityId": "1:5224732339796799956",
+  "lastIndexId": "0:0",
+  "lastRelationId": "0:0",
+  "lastSequenceId": "0:0",
+  "modelVersion": 5,
+  "modelVersionParserMinimum": 5,
+  "retiredEntityUids": [],
+  "retiredIndexUids": [],
+  "retiredPropertyUids": [],
+  "retiredRelationUids": [],
+  "version": 1
+}
