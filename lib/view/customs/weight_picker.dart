@@ -1,6 +1,8 @@
+import 'package:bmi_calculator/providers/person.dart';
 import 'package:bmi_calculator/view/customs/pentagon.dart';
 import 'package:bmi_calculator/view/theme/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class WeightPicker extends StatefulWidget {
   const WeightPicker({Key? key}) : super(key: key);
@@ -24,6 +26,9 @@ class _WeightPickerState extends State<WeightPicker> {
         int position = weightPickerController.page!.round();
         if (position != _selectedWeight) {
           _selectedWeight = position;
+
+          //set person weight
+          trackAndSetWeight(context);
         }
       });
     });
@@ -33,6 +38,11 @@ class _WeightPickerState extends State<WeightPicker> {
   void dispose() {
     weightPickerController.dispose();
     super.dispose();
+  }
+
+  void trackAndSetWeight(BuildContext context) {
+    Provider.of<PersonProvider>(context, listen: false)
+        .setPersonWeight(_selectedWeight);
   }
 
   @override
@@ -73,7 +83,7 @@ class _WeightPickerState extends State<WeightPicker> {
                     bool isNextRightClose = index - _selectedWeight == 1;
                     bool isNextNextLeftClose = index - _selectedWeight == -2;
                     bool isNextNextRightClose = index - _selectedWeight == 2;
-                    var text = Text("${index + 1}");
+                    var text = Text("$index");
                     return Align(
                       alignment: Alignment.center,
                       child: Text(
@@ -108,7 +118,7 @@ class _WeightPickerState extends State<WeightPicker> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "${_selectedWeight + 1}",
+                        "$_selectedWeight ",
                         style: const TextStyle(
                             color: primary,
                             fontSize: 40,

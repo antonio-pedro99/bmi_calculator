@@ -1,4 +1,4 @@
-import 'package:bmi_calculator/controller/data_input_controller.dart';
+import 'package:bmi_calculator/providers/person.dart';
 import 'package:bmi_calculator/view/customs/composition_tile.dart';
 import 'package:bmi_calculator/view/customs/custom_button.dart';
 import 'package:bmi_calculator/view/pages/home.dart';
@@ -18,6 +18,8 @@ class _ResultPageState extends State<ResultPage> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
+    var person = Provider.of<PersonProvider>(context, listen: true).getPerson;
+
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
@@ -62,7 +64,7 @@ class _ResultPageState extends State<ResultPage> {
                       ),
                       const SizedBox(height: 15),
                       Text(
-                        "24.4",
+                        "${person.bodyMassIndex}",
                         style: CustomTypography.bodyLarge,
                       ),
                       Text(
@@ -81,7 +83,7 @@ class _ResultPageState extends State<ResultPage> {
                   children: [
                     Container(width: 150, height: 120, color: darkBlue),
                     CompositionTile(
-                      value: 25.toString(),
+                      value: "${person.age}",
                       title: "Age",
                     )
                   ],
@@ -90,11 +92,11 @@ class _ResultPageState extends State<ResultPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     CompositionTile(
-                      value: 156.toString(),
+                      value: "${person.height}",
                       title: "Centimeter",
                     ),
                     CompositionTile(
-                      value: 65.toString(),
+                      value: "${person.weight}",
                       title: "Kg",
                     )
                   ],
@@ -103,7 +105,7 @@ class _ResultPageState extends State<ResultPage> {
                   text: "Retry",
                   icon: Icons.restore,
                   onPressed: () {
-                    Provider.of<DataProvider>(context, listen: false)
+                    Provider.of<PersonProvider>(context, listen: false)
                         .resetValues();
 
                     Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(

@@ -1,5 +1,4 @@
-
-import 'package:bmi_calculator/controller/data_input_controller.dart';
+import 'package:bmi_calculator/providers/person.dart';
 import 'package:bmi_calculator/view/pages/home.dart';
 import 'package:bmi_calculator/view/theme/colors.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +8,7 @@ import 'package:provider/provider.dart';
 void main() {
   runApp(MultiProvider(
     providers: [
-      ChangeNotifierProvider(create: (_) => DataProvider()),
+      ChangeNotifierProvider(create: (_) => PersonProvider()),
     ],
     child: const MyApp(),
   ));

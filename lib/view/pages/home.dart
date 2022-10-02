@@ -1,4 +1,4 @@
-import 'package:bmi_calculator/controller/data_input_controller.dart';
+import 'package:bmi_calculator/providers/person.dart';
 import 'package:bmi_calculator/view/customs/age_picker.dart';
 import 'package:bmi_calculator/view/customs/gender_picker.dart';
 import 'package:bmi_calculator/view/customs/weight_picker.dart';

@@ -1,5 +1,6 @@
-import 'package:bmi_calculator/controller/data_input_controller.dart';
+import 'package:bmi_calculator/providers/person.dart';
 import 'package:bmi_calculator/view/customs/custom_button.dart';
+import 'package:bmi_calculator/view/customs/ruler_indicator.dart';
 import 'package:bmi_calculator/view/pages/result.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -11,32 +12,28 @@ class HeightPage extends StatefulWidget {
   State<HeightPage> createState() => _HeightPageState();
 }
 
-int valueGap = 1;
 int maxValue = 200;
-double value = (maxValue - valueGap) / 2;
 
 class _HeightPageState extends State<HeightPage> {
   late var heightController = PageController();
 
-  double _offset = 0.0;
+  int _currentCentimeter = 144;
+  late double _selectedHeight = 160;
 
-  int _currentPage = (maxValue ~/ valueGap / 2).floor();
   @override
   void initState() {
     super.initState();
 
     heightController =
-        PageController(viewportFraction: .05, initialPage: _currentPage);
+        PageController(viewportFraction: .05, initialPage: _currentCentimeter);
 
     heightController.addListener(() {
       setState(() {
-        _offset = heightController.page!;
-        value = _offset * valueGap;
         int position = heightController.page!.floor();
 
-        if (position != _currentPage) {
-          print("Position ${value * 3}");
-          _currentPage = position;
+        if (position != _currentCentimeter) {
+          _currentCentimeter = position;
+          _selectedHeight = ((_currentCentimeter * 2.94) * maxValue) / 529.2;
         }
       });
     });
@@ -81,7 +78,6 @@ class _HeightPageState extends State<HeightPage> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-               
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.end,
@@ -89,18 +85,25 @@ class _HeightPageState extends State<HeightPage> {
                     const Spacer(),
                     Container(
                       alignment: Alignment.bottomCenter,
-                      child: LimitedBox(
-                        maxHeight: size.height * .65,
-                        child: Image.asset(
-                          Provider.of<DataProvider>(context).isMaleSelected
-                              ? "assets/man_standing.png"
-                              : "assets/girl_standing.png",
-                          height: value.toDouble() * 3,
-                          fit: BoxFit.fitHeight,
-                        ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          const RulerIndicator(),
+                          LimitedBox(
+                            maxHeight: size.height * .65,
+                            child: Image.asset(
+                              Provider.of<PersonProvider>(context)
+                                      .isMaleSelected
+                                  ? "assets/man_standing.png"
+                                  : "assets/girl_standing.png",
+                              height: _currentCentimeter * 2.94,
+                              fit: BoxFit.fitHeight,
+                            ),
+                          )
+                        ],
                       ),
                     ),
-                    const Spacer(),
+                    Spacer(),
                     SizedBox(
                         width: 100,
                         height: size.height * .65,
@@ -111,8 +114,9 @@ class _HeightPageState extends State<HeightPage> {
                             padEnds: false,
                             itemBuilder: (context, index) {
                               int current = index + 1;
-                              bool selectedHeight = _currentPage == index;
-                              print("${_currentPage + 6}");
+                              bool selectedCentimeter =
+                                  _selectedHeight.toInt() == current - 1;
+
                               return Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
@@ -121,7 +125,7 @@ class _HeightPageState extends State<HeightPage> {
                                   Text(
                                     "$current",
                                     style: TextStyle(
-                                        color: selectedHeight
+                                        color: selectedCentimeter
                                             ? Colors.yellow
                                             : current % 5 == 0
                                                 ? Colors.white
@@ -141,7 +145,7 @@ class _HeightPageState extends State<HeightPage> {
                               );
                             },
                             controller: heightController,
-                            itemCount: maxValue ~/ valueGap))
+                            itemCount: maxValue))
                   ],
                 ),
                 CurvedButton(
