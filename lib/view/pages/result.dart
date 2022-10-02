@@ -68,7 +68,7 @@ class _ResultPageState extends State<ResultPage> {
                         style: CustomTypography.bodyLarge,
                       ),
                       Text(
-                        "Normal",
+                        context.read<PersonProvider>().getStatus(),
                         style: CustomTypography.bodyMedium,
                       )
                     ],
@@ -81,7 +81,14 @@ class _ResultPageState extends State<ResultPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Container(width: 150, height: 120, color: darkBlue),
+                    Container(
+                      width: 150,
+                      height: 120,
+                      color: darkBlue,
+                      child: Image.asset(person.gender == "Male"
+                          ? "assets/b_normal.png"
+                          : "assets/b_normal_girl.png"),
+                    ),
                     CompositionTile(
                       value: "${person.age}",
                       title: "Age",

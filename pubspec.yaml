@@ -64,6 +64,8 @@ flutter:
       - assets/female.gif
       - assets/man_standing.png
       - assets/girl_standing.png
+      - assets/b_normal.png
+      - assets/b_normal_girl.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

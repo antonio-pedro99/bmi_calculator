@@ -17,13 +17,14 @@ int maxValue = 200;
 class _HeightPageState extends State<HeightPage> {
   late var heightController = PageController();
 
-  int _currentCentimeter = 145;
+  int _currentCentimeter = 144;
   late double _selectedHeight = 160;
 
   @override
   void initState() {
     super.initState();
 
+    //getAverageHeightByGender(context);
     heightController =
         PageController(viewportFraction: .05, initialPage: _currentCentimeter);
 
@@ -33,7 +34,8 @@ class _HeightPageState extends State<HeightPage> {
 
         if (position != _currentCentimeter) {
           _currentCentimeter = position;
-          _selectedHeight = ((_currentCentimeter * 2.94) * maxValue) / 529.2;
+          _selectedHeight =
+              ((_currentCentimeter.toInt() * 2.935) * maxValue) / 529.2;
 
           //set height
 
@@ -45,8 +47,19 @@ class _HeightPageState extends State<HeightPage> {
 
   void trackAndSetHeight(BuildContext context) {
     Provider.of<PersonProvider>(context, listen: false)
-        .setPersonHeight(_selectedHeight.toInt());
+        .setPersonHeight(_selectedHeight.round());
   }
+
+/*   void getAverageHeightByGender(BuildContext context) {
+    bool isMale =
+        Provider.of<PersonProvider>(context, listen: false).isMaleSelected;
+
+    if (isMale) {
+      _selectedHeight = 176;
+      _currentCentimeter = (((_selectedHeight * 529.2) / 200) / 2.925).round();
+      print("$_currentCentimeter");
+    }
+  } */
 
   @override
   void dispose() {
@@ -112,20 +125,19 @@ class _HeightPageState extends State<HeightPage> {
                         ],
                       ),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     SizedBox(
                         width: 100,
                         height: size.height * .65,
                         child: PageView.builder(
-                            //physics: const NeverScrollableScrollPhysics(),
                             scrollDirection: Axis.vertical,
                             reverse: true,
                             padEnds: false,
                             itemBuilder: (context, index) {
                               int current = index + 1;
                               bool selectedCentimeter =
-                                  _selectedHeight.toInt() == current - 1;
-                              //   print("Max Image: ${size.height * .65}");
+                                  _selectedHeight.round() == current;
+
                               return Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,

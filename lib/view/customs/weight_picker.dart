@@ -13,7 +13,7 @@ class WeightPicker extends StatefulWidget {
 
 class _WeightPickerState extends State<WeightPicker> {
   late PageController weightPickerController;
-  int _selectedWeight = 70;
+  int _selectedWeight = 62;
   @override
   void initState() {
     super.initState();
