@@ -17,7 +17,7 @@ int maxValue = 200;
 class _HeightPageState extends State<HeightPage> {
   late var heightController = PageController();
 
-  int _currentCentimeter = 144;
+  int _currentCentimeter = 145;
   late double _selectedHeight = 160;
 
   @override
@@ -34,9 +34,18 @@ class _HeightPageState extends State<HeightPage> {
         if (position != _currentCentimeter) {
           _currentCentimeter = position;
           _selectedHeight = ((_currentCentimeter * 2.94) * maxValue) / 529.2;
+
+          //set height
+
+          trackAndSetHeight(context);
         }
       });
     });
+  }
+
+  void trackAndSetHeight(BuildContext context) {
+    Provider.of<PersonProvider>(context, listen: false)
+        .setPersonHeight(_selectedHeight.toInt());
   }
 
   @override
@@ -116,7 +125,7 @@ class _HeightPageState extends State<HeightPage> {
                               int current = index + 1;
                               bool selectedCentimeter =
                                   _selectedHeight.toInt() == current - 1;
-
+                              //   print("Max Image: ${size.height * .65}");
                               return Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,

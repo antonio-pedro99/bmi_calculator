@@ -9,7 +9,7 @@ class Person {
   Person(
       {this.age = 18,
       this.bodyMassIndex = 0,
-      this.height,
+      this.height = 160,
       this.name,
       this.weight = 70,
       this.gender});
