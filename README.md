@@ -11,16 +11,15 @@ To be updated
 ## Features
 
 
-Currentt
------------
+### Currentt
+
 <li> 
   <u>Calculate your BMI<u/>
   <u>Save your Records locally<u/>
   <u>Enter your Details according to your gender<u/>
 </li>
 
-Incoming
----------
+### Incoming
 <li> 
   <u>Details About BMI<u/>
   <u>Multiple Languages<u/>
