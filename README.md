@@ -14,16 +14,16 @@ To be updated
 ### Currentt
 
 <li> 
-  <u>Calculate your BMI<u/>
-  <u>Save your Records locally<u/>
-  <u>Enter your Details according to your gender<u/>
+  <ul>Calculate your BMI<ul/>
+  <ul>Save your Records locally<ul/>
+  <ul>Enter your Details according to your gender<ul/>
 </li>
 
 ### Incoming
 <li> 
-  <u>Details About BMI<u/>
-  <u>Multiple Languages<u/>
-  <u>Animations<u/>
+  <ul>Details About BMI<ul/>
+  <ul>Multiple Languages<ul/>
+  <ul>Animations<ul/>
 </li>
 
 ## Contributte
