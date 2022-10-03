@@ -12,18 +12,18 @@ To be updated
 
 
 ### Current
-<ol>
+<ul>
   <li>Calculate your BMI<li/>
   <li>Save your Records locally<li/>
   <li>Enter your Details according to your gender<li/>
-<ol/>
+<ul/>
 ### Incoming
     
-<ol>
+<ul>
   <li>Details About BMI<li/>
   <li>Multiple Languages<li/>
   <li>Animations<li/>
-<ol/>
+<ul/>
 
 ## Contributte
 To contribute to this, open an issue or feel free to work on any opening issue.
