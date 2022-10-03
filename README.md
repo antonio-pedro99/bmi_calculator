@@ -13,9 +13,9 @@ To be updated
 
 ### Current
 
-  <ul>Calculate your BMI<ul/>
-  <ul>Save your Records locally<ul/>
-  <ul>Enter your Details according to your gender<ul/>
+  <li>Calculate your BMI<li/>
+  <li>Save your Records locally<li/>
+  <li>Enter your Details according to your gender<li/>
 
 
 ### Incoming
