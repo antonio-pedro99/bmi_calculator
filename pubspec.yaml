@@ -81,10 +81,11 @@ objectbox:
   output_dir:
     lib: data/local
 icons_launcher:
-  image_path: 'assets/icons/ic_icon.png'
+  image_path: 'assets/ic_icon.png'
   platforms:
     android:
       enable: true
+     
     ios:
       enable: true
   # An image asset can refer to one or more resolution-specific "variants", see
