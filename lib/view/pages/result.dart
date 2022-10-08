@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/functions.dart';
 import 'package:bmi_calculator/main.dart';
 import 'package:bmi_calculator/providers/person.dart';
 import 'package:bmi_calculator/view/customs/composition_tile.dart';
@@ -120,7 +121,7 @@ class _ResultPageState extends State<ResultPage> {
                         style: CustomTypography.bodyLarge,
                       ),
                       Text(
-                        context.read<PersonProvider>().getStatus(),
+                        getStatus(person.bodyMassIndex!),
                         style: CustomTypography.bodyMedium,
                       )
                     ],

@@ -172,7 +172,7 @@ class _HeightPageState extends State<HeightPage> {
                 CurvedButton(
                   onPressed: () {
                     Provider.of<PersonProvider>(context, listen: false)
-                        .calculatePersonBodyMassIndex();
+                        .getPersonBodyMassIndex();
                     Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(
                       builder: (context) {
                         return const ResultPage();
