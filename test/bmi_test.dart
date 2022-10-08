@@ -13,7 +13,7 @@ void main() {
     test("Status should be Normal", () => expect(getStatus(22.45), "Normal"));
 
     test(
-        "BMI should be Normal",
+        "BMI should be Overweight",
         () => expect(
             calculatePersonBodyMassIndex(Person()
               ..height = 160
