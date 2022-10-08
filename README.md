@@ -25,6 +25,6 @@ To be updated
 <li>Animations<li/>
 
 
-## Contributte
+## Contribute
 To contribute to this, open an issue or feel free to work on any opening issue.
  

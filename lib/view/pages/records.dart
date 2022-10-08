@@ -53,8 +53,6 @@ class _RecordPageState extends State<RecordPage> {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
-
     var streamPerson = localStorage.getRecords();
 
     return Scaffold(

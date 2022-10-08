@@ -1,4 +1,3 @@
-import 'package:bmi_calculator/view/theme/colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomTypography {

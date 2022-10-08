@@ -9,7 +9,7 @@ class RulerIndicator extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.end,
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
-        Container(
+        SizedBox(
           height: 3,
           width: 220,
           child: ListView.builder(
