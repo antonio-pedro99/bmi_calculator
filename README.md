@@ -1,16 +1,30 @@
-# bmi_calculator
+# Modern BMI Calculator
 
-A new Flutter project.
+Track your Body Mass Index with a Modern BMI Calculator.
 
-## Getting Started
+`Support this with your ❤️ by starring the Repo`
+## Design
+To be updated
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Features
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+### Current
+
+<li>Calculate your BMI<li/>
+<li>Save your Records locally<li/>
+<li>Enter your Details according to your gender<li/>
+
+  
+### Incoming
+    
+<li>Details About BMI<li/>
+<li>Multiple Languages<li/>
+<li>Animations<li/>
+
+
+## Contributte
+To contribute to this, open an issue or feel free to work on any opening issue.
+ 
