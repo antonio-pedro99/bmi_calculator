@@ -5,7 +5,7 @@ Track your Body Mass Index with a Modern BMI Calculator.
 `Support this with your ❤️ by starring the Repo`
 ## Design
 To be updated
-[![Video]()](https://user-images.githubusercontent.com/8452419/127241077-7ccca03b-9718-40a3-aacd-1629f3e40a10.mp4)
+[![Video]()](https://github.com/antonio-pedro99/bmi_calculator/blob/master/screenshots/demo.mp4)
 
 
 ## Features
