@@ -2,9 +2,8 @@
 
 Track your Body Mass Index with a Modern BMI Calculator.
 
-`Support this with your ❤️ by starring the Repo`
+`Support this with your ❤ by starring the Repo`
 ## Design
-To be updated
 
 https://user-images.githubusercontent.com/42675180/196056060-f5d8d258-67d4-4ed7-b01b-1ada01cfde97.mp4
 
