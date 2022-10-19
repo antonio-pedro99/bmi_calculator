@@ -5,7 +5,6 @@ import 'package:bmi_calculator/view/pages/height.dart';
 import 'package:bmi_calculator/view/pages/records.dart';
 import 'package:flutter/material.dart';
 
-
 import '../customs/custom_button.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -18,41 +17,49 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-
+    var size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('BMI Calculator'),
-        actions: [
-          IconButton(
-              onPressed: (() {
-                Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) {
-                  return const RecordPage();
-                }));
-              }),
-              icon: const Icon(Icons.history))
-        ],
-      ),
-      body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const GenderPicker(),
-            const SizedBox(height: 90, child: AgePicker()),
-            const SizedBox(height: 18),
-            const WeightPicker(),
-            const SizedBox(height: 20),
-            CurvedButton(
-              onPressed: () {
-                Navigator.of(context)
-                    .push(MaterialPageRoute(builder: ((context) {
-                  return const HeightPage();
-                })));
-              },
-            ),
-            const SizedBox(height: 30),
-          ],
+      body: NestedScrollView(
+        floatHeaderSlivers: true,
+        physics: const BouncingScrollPhysics(),
+        headerSliverBuilder: (context, innerBoxIsScrolled) {
+          return <Widget>[
+            SliverAppBar(
+              title: const Text('BMI Calculator'),
+              forceElevated: innerBoxIsScrolled,
+              actions: [
+                IconButton(
+                    onPressed: (() {
+                      Navigator.of(context)
+                          .push(MaterialPageRoute(builder: (context) {
+                        return const RecordPage();
+                      }));
+                    }),
+                    icon: const Icon(Icons.history))
+              ],
+            )
+          ];
+        },
+        body: SafeArea(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const GenderPicker(),
+              const SizedBox(height: 90, child: AgePicker()),
+              const WeightPicker(),
+              const SizedBox(height: 20),
+              CurvedButton(
+                onPressed: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: ((context) {
+                    return const HeightPage();
+                  })));
+                },
+              ),
+              const SizedBox(height: 30),
+            ],
+          ),
         ),
       ),
     );

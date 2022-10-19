@@ -49,8 +49,8 @@ class GenderSelectionTale extends StatelessWidget {
                   ]),
                 ),
               )),
-          const SizedBox(
-            height: 18,
+          SizedBox(
+            height: size.height * .018,
           ),
           Text(gender.gender!,
               style: isSelected!

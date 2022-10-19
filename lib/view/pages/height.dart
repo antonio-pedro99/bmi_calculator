@@ -85,13 +85,13 @@ class _HeightPageState extends State<HeightPage> {
                       color: Colors.white, fontWeight: FontWeight.normal)),
             ],
           ),
-          actions: [
+          /*   actions: [
             IconButton(
               onPressed: () {},
               icon: const Icon(Icons.help),
               tooltip: "Get Help",
             )
-          ],
+          ], */
         ),
         body: SafeArea(
           child: Padding(
@@ -127,7 +127,7 @@ class _HeightPageState extends State<HeightPage> {
                     ),
                     const Spacer(),
                     SizedBox(
-                        width: 100,
+                        width: 80,
                         height: size.height * .65,
                         child: PageView.builder(
                             scrollDirection: Axis.vertical,
