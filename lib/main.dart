@@ -1,4 +1,3 @@
-
 import 'package:bmi_calculator/controllers/objectbox.dart';
 import 'package:bmi_calculator/providers/person.dart';
 import 'package:bmi_calculator/view/pages/home.dart';

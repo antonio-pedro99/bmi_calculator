@@ -78,8 +78,10 @@ class _RecordPageState extends State<RecordPage> {
             ),
             actions: [
               IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.help),
+                onPressed: () {
+                  localStorage.removeAll();
+                },
+                icon: const Icon(Icons.delete),
                 tooltip: "Get Help",
               )
             ],
@@ -99,34 +101,48 @@ class _RecordPageState extends State<RecordPage> {
                 }
 
                 List<Person> records = snapshot.data as List<Person>;
-                return ListView.builder(
-                    itemCount: records.length,
-                    itemBuilder: (context, index) {
-                      return ListTile(
-                        leading: CircleAvatar(
-                          backgroundColor: primary,
-                          radius: 45,
-                          child: Icon(
-                            records[index].gender == "Male"
-                                ? Icons.boy
-                                : Icons.girl,
-                            color: Colors.white,
-                            size: 40,
-                          ),
-                        ),
-                        title: Text(
-                          "${records[index].name}",
-                          style: CustomTypography.bodyMedium,
-                        ),
-                        subtitle: Text(
-                          "${records[index].age} year-old",
-                          style: TextStyle(
-                              color: Colors.white.withOpacity(.5),
-                              fontSize: 16),
-                        ),
-                        onTap: () => showRecordDetails(records[index]),
-                      );
-                    });
+
+                return records.isEmpty
+                    ? Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Image.asset("assets/list.gif"),
+                          Text(
+                            "No records Found!",
+                            textAlign: TextAlign.center,
+                            style: CustomTypography.bodyMedium,
+                          )
+                        ],
+                      )
+                    : ListView.builder(
+                        itemCount: records.length,
+                        itemBuilder: (context, index) {
+                          return ListTile(
+                            leading: CircleAvatar(
+                              backgroundColor: primary,
+                              radius: 45,
+                              child: Icon(
+                                records[index].gender == "Male"
+                                    ? Icons.boy
+                                    : Icons.girl,
+                                color: Colors.white,
+                                size: 40,
+                              ),
+                            ),
+                            title: Text(
+                              "${records[index].name}",
+                              style: CustomTypography.bodyMedium,
+                            ),
+                            subtitle: Text(
+                              "${records[index].age} year-old",
+                              style: TextStyle(
+                                  color: Colors.white.withOpacity(.5),
+                                  fontSize: 16),
+                            ),
+                            onTap: () => showRecordDetails(records[index]),
+                          );
+                        });
               }),
             )),
       ),

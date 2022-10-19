@@ -34,4 +34,17 @@ class ObjectBox {
   void removeRecord(int recordId) {
     records.remove(recordId);
   }
+
+  void removeAll() {
+    records.removeAll();
+  }
+
+//experimental, do not use it!
+  Stream<List<Person>> filterBy() {
+    final queryBuilder = records.query();
+    return queryBuilder
+        .watch(triggerImmediately: true)
+        .where((event) => false)
+        .map((event) => event.find());
+  }
 }
