@@ -56,71 +56,80 @@ class _RecordPageState extends State<RecordPage> {
     var streamPerson = localStorage.getRecords();
 
     return Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                "Your ",
-                style: TextStyle(color: Colors.white.withOpacity(.5)),
-              ),
-              const Text("Records",
-                  style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.normal)),
+        body: NestedScrollView(
+      floatHeaderSlivers: true,
+      physics: const BouncingScrollPhysics(),
+      headerSliverBuilder: (context, innerBoxIsScrolled) {
+        return [
+          SliverAppBar(
+            centerTitle: true,
+            forceElevated: innerBoxIsScrolled,
+            title: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Your ",
+                  style: TextStyle(color: Colors.white.withOpacity(.5)),
+                ),
+                const Text("Records",
+                    style: TextStyle(
+                        color: Colors.white, fontWeight: FontWeight.normal)),
+              ],
+            ),
+            actions: [
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.help),
+                tooltip: "Get Help",
+              )
             ],
-          ),
-          actions: [
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.help),
-              tooltip: "Get Help",
-            )
-          ],
-        ),
-        body: SafeArea(
-          child: Padding(
-              padding: const EdgeInsets.all(12),
-              child: StreamBuilder(
-                stream: streamPerson,
-                builder: ((context, snapshot) {
-                  if (!snapshot.hasData) {
-                    return const Center(child: CircularProgressIndicator());
-                  } else if (snapshot.hasError) {
-                    return const Center(child: Text("Something wrong"));
-                  }
+          )
+        ];
+      },
+      body: SafeArea(
+        child: Padding(
+            padding: const EdgeInsets.all(12),
+            child: StreamBuilder(
+              stream: streamPerson,
+              builder: ((context, snapshot) {
+                if (!snapshot.hasData) {
+                  return const Center(child: CircularProgressIndicator());
+                } else if (snapshot.hasError) {
+                  return const Center(child: Text("Something wrong"));
+                }
 
-                  List<Person> records = snapshot.data as List<Person>;
-                  return ListView.builder(
-                      itemCount: records.length,
-                      itemBuilder: (context, index) {
-                        return ListTile(
-                          leading: CircleAvatar(
-                            backgroundColor: primary,
-                            radius: 45,
-                            child: Icon(
-                              records[index].gender == "Male"
-                                  ? Icons.boy
-                                  : Icons.girl,
-                              color: Colors.white,
-                              size: 40,
-                            ),
+                List<Person> records = snapshot.data as List<Person>;
+                return ListView.builder(
+                    itemCount: records.length,
+                    itemBuilder: (context, index) {
+                      return ListTile(
+                        leading: CircleAvatar(
+                          backgroundColor: primary,
+                          radius: 45,
+                          child: Icon(
+                            records[index].gender == "Male"
+                                ? Icons.boy
+                                : Icons.girl,
+                            color: Colors.white,
+                            size: 40,
                           ),
-                          title: Text(
-                            "${records[index].name}",
-                            style: CustomTypography.bodyMedium,
-                          ),
-                          subtitle: Text(
-                            "${records[index].age} year-old",
-                            style: TextStyle(
-                                color: Colors.white.withOpacity(.5),
-                                fontSize: 16),
-                          ),
-                          onTap: () => showRecordDetails(records[index]),
-                        );
-                      });
-                }),
-              )),
-        ));
+                        ),
+                        title: Text(
+                          "${records[index].name}",
+                          style: CustomTypography.bodyMedium,
+                        ),
+                        subtitle: Text(
+                          "${records[index].age} year-old",
+                          style: TextStyle(
+                              color: Colors.white.withOpacity(.5),
+                              fontSize: 16),
+                        ),
+                        onTap: () => showRecordDetails(records[index]),
+                      );
+                    });
+              }),
+            )),
+      ),
+    ));
   }
 }

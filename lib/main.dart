@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
               centerTitle: true,
               systemOverlayStyle:
                   SystemUiOverlayStyle(statusBarColor: swatch))),
-      home: const MyHomePage(),
+      home: MyHomePage(),
     );
   }
 }
