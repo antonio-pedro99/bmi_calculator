@@ -14,16 +14,16 @@ https://user-images.githubusercontent.com/42675180/196056060-f5d8d258-67d4-4ed7-
 
 ### Current
 
-<li>Calculate your BMI<li/>
-<li>Save your Records locally<li/>
-<li>Enter your Details according to your gender<li/>
+<li>Calculate your BMI</li>
+<li>Save your Records locally</li>
+<li>Enter your Details according to your gender</li>
 
   
 ### Incoming
     
-<li>Details About BMI<li/>
-<li>Multiple Languages<li/>
-<li>Animations<li/>
+<li>Details About BMI</li>
+<li>Multiple Languages</li>
+<li>Animations</li>
 
 
 ## Contribute
