@@ -56,7 +56,11 @@ class ResultPage extends StatelessWidget {
                         provider.setPersonName(nameController.text);
                         localStorage.saveRecord(person);
                         provider.resetValues();
-                        Navigator.of(context).pop();
+
+                        Navigator.of(context).pushAndRemoveUntil(
+                            MaterialPageRoute(builder: (context) {
+                          return const MyHomePage();
+                        }), (r) => false);
                       }
                     },
                     child: const Text(
@@ -198,10 +202,7 @@ class ResultPage extends StatelessWidget {
                       text: "Save",
                       icon: Icons.save,
                       color: Colors.green,
-                      onPressed: showSaveDialog
-                      //Navigator.pop(context);
-
-                      )
+                      onPressed: showSaveDialog)
                 ],
               )
             ],
