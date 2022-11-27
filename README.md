@@ -6,7 +6,8 @@ Track your Body Mass Index with a Modern BMI Calculator.
 
 If you feel awesome and want to support us in a small way, please consider starring and sharing the repo! This helps us getting known and grow the community. 🙏
 
-<img src="https://raw.githubusercontent.com/antonio-pedro/bmi_calculator/master/public/bmi_calculator.git" alt="bmi-star" />
+
+<img src="https://raw.githubusercontent.com/lusaxweb/vuesax/master/public/github-vuesax-star.gif" alt="bmi-star" />
 ## Design
 
 https://user-images.githubusercontent.com/42675180/196056060-f5d8d258-67d4-4ed7-b01b-1ada01cfde97.mp4
