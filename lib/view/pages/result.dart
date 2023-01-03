@@ -94,13 +94,13 @@ class ResultPage extends StatelessWidget {
                           color: Colors.white, fontWeight: FontWeight.normal)),
                 ],
               ),
-              actions: [
-                IconButton(
+              /*  actions: const[
+                  IconButton(
                   onPressed: () {},
                   icon: const Icon(Icons.help),
                   tooltip: "Get Help",
-                )
-              ],
+                )   
+              ], */
             )
           ];
         },
