@@ -128,28 +128,4 @@ class _RecordPageState extends State<RecordPage> {
       ),
     ));
   }
-}/* 
-ListTile(
-                            leading: CircleAvatar(
-                              backgroundColor: primary,
-                              radius: 45,
-                              child: Icon(
-                                records[index].gender == "Male"
-                                    ? Icons.boy
-                                    : Icons.girl,
-                                color: Colors.white,
-                                size: 40,
-                              ),
-                            ),
-                            title: Text(
-                              "${records[index].name}",
-                              style: CustomTypography.bodyMedium,
-                            ),
-                            subtitle: Text(
-                              "${records[index].age} year-old",
-                              style: TextStyle(
-                                  color: Colors.white.withOpacity(.5),
-                                  fontSize: 16),
-                            ),
-                            onTap: () => showRecordDetails(records[index]),
-                          ) */
+}
