@@ -1,4 +1,5 @@
 import 'package:bmi_calculator/data/models/person.dart';
+import 'package:intl/intl.dart';
 
 //att: this might not be a good approach. I did just to make the app more testable
 String getStatus(double bmi) {
@@ -18,4 +19,10 @@ double calculatePersonBodyMassIndex(Person person) {
   int weight = person.weight!;
 
   return weight / (height * height);
+}
+
+extension DateTimeFormatted on DateTime {
+  String format() {
+    return DateFormat(DateFormat.YEAR_ABBR_MONTH_WEEKDAY_DAY).format(this);
+  }
 }

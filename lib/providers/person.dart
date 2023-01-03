@@ -37,6 +37,7 @@ class PersonProvider extends ChangeNotifier {
 
   void getPersonBodyMassIndex() {
     _person.bodyMassIndex = calculatePersonBodyMassIndex(_person);
+    _person.status = getStatus(_person.bodyMassIndex!);
   }
 
   Person get getPerson => _person;

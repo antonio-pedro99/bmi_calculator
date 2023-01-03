@@ -54,6 +54,7 @@ class ResultPage extends StatelessWidget {
                     onPressed: () {
                       if (key.currentState!.validate()) {
                         provider.setPersonName(nameController.text);
+
                         localStorage.saveRecord(person);
                         provider.resetValues();
 

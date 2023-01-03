@@ -1,5 +1,6 @@
 import 'package:bmi_calculator/data/models/person.dart';
 import 'package:bmi_calculator/main.dart';
+import 'package:bmi_calculator/view/customs/record_bmi_tile.dart';
 import 'package:bmi_calculator/view/theme/colors.dart';
 import 'package:bmi_calculator/view/theme/typography.dart';
 import 'package:flutter/material.dart';
@@ -118,7 +119,17 @@ class _RecordPageState extends State<RecordPage> {
                     : ListView.builder(
                         itemCount: records.length,
                         itemBuilder: (context, index) {
-                          return ListTile(
+                          return SavedBodyMaxIndexTile(
+                            record: records[index],
+                          );
+                        });
+              }),
+            )),
+      ),
+    ));
+  }
+}/* 
+ListTile(
                             leading: CircleAvatar(
                               backgroundColor: primary,
                               radius: 45,
@@ -141,11 +152,4 @@ class _RecordPageState extends State<RecordPage> {
                                   fontSize: 16),
                             ),
                             onTap: () => showRecordDetails(records[index]),
-                          );
-                        });
-              }),
-            )),
-      ),
-    ));
-  }
-}
+                          ) */
