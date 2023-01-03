@@ -105,108 +105,110 @@ class ResultPage extends StatelessWidget {
           ];
         },
         body: SafeArea(
-          child: Column(
-            children: [
-              Container(
-                height: 240,
-                width: 240,
-                decoration: decoratedBoxGradient,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Container(
+                  height: 240,
+                  width: 240,
+                  decoration: decoratedBoxGradient,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        "BMI",
+                        style: CustomTypography.titleMedium,
+                      ),
+                      const SizedBox(height: 15),
+                      Text(
+                        person.bodyMassIndex!.toStringAsFixed(2),
+                        style: CustomTypography.bodyLarge,
+                      ),
+                      Text(
+                        getStatus(person.bodyMassIndex!),
+                        style: CustomTypography.bodyMedium,
+                      )
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: size.height * .04,
+                ),
+                Text(
+                  "Body Composition ",
+                  style: TextStyle(color: Colors.white.withOpacity(.5)),
+                ),
+                SizedBox(
+                  height: size.height * .04,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Text(
-                      "BMI",
-                      style: CustomTypography.titleMedium,
+                    Container(
+                      width: 150,
+                      height: 120,
+                      color: darkBlue,
+                      child: Image.asset(person.gender == "Male"
+                          ? "assets/b_normal.png"
+                          : "assets/b_normal_girl.png"),
                     ),
-                    const SizedBox(height: 15),
-                    Text(
-                      person.bodyMassIndex!.toStringAsFixed(2),
-                      style: CustomTypography.bodyLarge,
-                    ),
-                    Text(
-                      getStatus(person.bodyMassIndex!),
-                      style: CustomTypography.bodyMedium,
+                    CompositionTile(
+                      value: "${person.age}",
+                      title: "Age",
                     )
                   ],
                 ),
-              ),
-              SizedBox(
-                height: size.height * .04,
-              ),
-              Text(
-                "Body Composition ",
-                style: TextStyle(color: Colors.white.withOpacity(.5)),
-              ),
-              SizedBox(
-                height: size.height * .04,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Container(
-                    width: 150,
-                    height: 120,
-                    color: darkBlue,
-                    child: Image.asset(person.gender == "Male"
-                        ? "assets/b_normal.png"
-                        : "assets/b_normal_girl.png"),
-                  ),
-                  CompositionTile(
-                    value: "${person.age}",
-                    title: "Age",
-                  )
-                ],
-              ),
-              SizedBox(
-                height: size.height * .02,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  CompositionTile(
-                    value: "${person.height}",
-                    title: "Centimeter",
-                  ),
-                  CompositionTile(
-                    value: "${person.weight}",
-                    title: "Kg",
-                  )
-                ],
-              ),
-              SizedBox(
-                height: size.height * .04,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  CurvedButton(
-                    text: "Retry",
-                    icon: Icons.restore,
-                    onPressed: () {
-                      Provider.of<PersonProvider>(context, listen: false)
-                          .resetValues();
+                SizedBox(
+                  height: size.height * .02,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    CompositionTile(
+                      value: "${person.height}",
+                      title: "Centimeter",
+                    ),
+                    CompositionTile(
+                      value: "${person.weight}",
+                      title: "Kg",
+                    )
+                  ],
+                ),
+                SizedBox(
+                  height: size.height * .04,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    CurvedButton(
+                      text: "Retry",
+                      icon: Icons.restore,
+                      onPressed: () {
+                        Provider.of<PersonProvider>(context, listen: false)
+                            .resetValues();
 
-                      Navigator.of(context).pushAndRemoveUntil(
-                          MaterialPageRoute(
-                        builder: (context) {
-                          return const MyHomePage();
-                        },
-                      ), ((route) => false));
-                    },
-                  ),
-                  SizedBox(
-                    width: size.width * .05,
-                  ),
-                  CurvedButton(
-                      text: "Save",
-                      icon: Icons.save,
-                      color: Colors.green,
-                      onPressed: showSaveDialog)
-                ],
-              )
-            ],
+                        Navigator.of(context).pushAndRemoveUntil(
+                            MaterialPageRoute(
+                          builder: (context) {
+                            return const MyHomePage();
+                          },
+                        ), ((route) => false));
+                      },
+                    ),
+                    SizedBox(
+                      width: size.width * .05,
+                    ),
+                    CurvedButton(
+                        text: "Save",
+                        icon: Icons.save,
+                        color: Colors.green,
+                        onPressed: showSaveDialog)
+                  ],
+                )
+              ],
+            ),
           ),
         ),
       ),
