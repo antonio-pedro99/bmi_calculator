@@ -20,7 +20,8 @@ If you feel awesome and want to support us in a small way, please consider starr
 </p>
 
 ## Design
-https://user-images.githubusercontent.com/42675180/196056060-f5d8d258-67d4-4ed7-b01b-1ada01cfde97.mp4"
+
+https://user-images.githubusercontent.com/42675180/196056060-f5d8d258-67d4-4ed7-b01b-1ada01cfde97.mp4
 
 
 ## Features
