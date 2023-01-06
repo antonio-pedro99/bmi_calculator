@@ -8,6 +8,7 @@ If you feel awesome and want to support us in a small way, please consider starr
 
 
 <img src="https://raw.githubusercontent.com/lusaxweb/vuesax/master/public/github-vuesax-star.gif" alt="bmi-star" />
+
 ## Screenshots
 
 <p float="right">
@@ -17,14 +18,14 @@ If you feel awesome and want to support us in a small way, please consider starr
  <img src="https://user-images.githubusercontent.com/42675180/210931957-a78cec14-d0fd-40e0-9533-38197c1cce46.jpg" width="150"/>
  <img src="https://user-images.githubusercontent.com/42675180/210931963-fbcffd76-36be-418c-9d79-bc1aeaeb4a95.jpg" width="150"/>
 </p>
+
 ## Design
-
-https://user-images.githubusercontent.com/42675180/196056060-f5d8d258-67d4-4ed7-b01b-1ada01cfde97.mp4
-
+<p float="right">
+ <img src="https://user-images.githubusercontent.com/42675180/196056060-f5d8d258-67d4-4ed7-b01b-1ada01cfde97.mp4"  width="150"/>
+</p>
 
 
 ## Features
-
 
 ### Current
 
