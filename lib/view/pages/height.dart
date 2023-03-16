@@ -50,17 +50,6 @@ class _HeightPageState extends State<HeightPage> {
         .setPersonHeight(_selectedHeight.round());
   }
 
-/*   void getAverageHeightByGender(BuildContext context) {
-    bool isMale =
-        Provider.of<PersonProvider>(context, listen: false).isMaleSelected;
-
-    if (isMale) {
-      _selectedHeight = 176;
-      _currentCentimeter = (((_selectedHeight * 529.2) / 200) / 2.925).round();
-      print("$_currentCentimeter");
-    }
-  } */
-
   @override
   void dispose() {
     heightController.dispose();
@@ -85,13 +74,7 @@ class _HeightPageState extends State<HeightPage> {
                       color: Colors.white, fontWeight: FontWeight.normal)),
             ],
           ),
-          /*   actions: [
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.help),
-              tooltip: "Get Help",
-            )
-          ], */
+        
         ),
         body: SafeArea(
           child: Padding(

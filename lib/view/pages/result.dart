@@ -1,8 +1,10 @@
 import 'package:bmi_calculator/functions.dart';
 import 'package:bmi_calculator/main.dart';
 import 'package:bmi_calculator/providers/person.dart';
+import 'package:bmi_calculator/view/customs/chat_visor_button.dart';
 import 'package:bmi_calculator/view/customs/composition_tile.dart';
 import 'package:bmi_calculator/view/customs/custom_button.dart';
+import 'package:bmi_calculator/view/pages/chat_page.dart';
 import 'package:bmi_calculator/view/pages/home.dart';
 import 'package:bmi_calculator/view/theme/colors.dart';
 import 'package:bmi_calculator/view/theme/typography.dart';
@@ -94,13 +96,6 @@ class ResultPage extends StatelessWidget {
                           color: Colors.white, fontWeight: FontWeight.normal)),
                 ],
               ),
-              /*  actions: const[
-                  IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.help),
-                  tooltip: "Get Help",
-                )   
-              ], */
             )
           ];
         },
@@ -108,30 +103,18 @@ class ResultPage extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                Container(
-                  height: 240,
-                  width: 240,
-                  decoration: decoratedBoxGradient,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        "BMI",
-                        style: CustomTypography.titleMedium,
-                      ),
-                      const SizedBox(height: 15),
-                      Text(
-                        person.bodyMassIndex!.toStringAsFixed(2),
-                        style: CustomTypography.bodyLarge,
-                      ),
-                      Text(
-                        getStatus(person.bodyMassIndex!),
-                        style: CustomTypography.bodyMedium,
-                      )
-                    ],
-                  ),
-                ),
+                Hero(
+                    tag: "details",
+                    child: ChatVisorButton(
+                      bmi: person.bodyMassIndex!.toStringAsFixed(2),
+                      head: "BMI",
+                      status: getStatus(person.bodyMassIndex!),
+                      onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) {
+                          return const ChatPage();
+                        },
+                      )),
+                    )),
                 SizedBox(
                   height: size.height * .04,
                 ),
